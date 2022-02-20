@@ -1,0 +1,102 @@
+[*] Set Directorys
+[-] Test if ADB SHELL is working
+[-] ADB connectoin possible
+[-] In any AVD via ADB, you can execute code without root in /data/data/com.android.shell
+[*] looking for Magisk installer Zip
+[*] Cleaning up the ADB working space
+[*] Creating the ADB working space
+[*] Push Magisk.zip into /data/data/com.android.shell/Magisk
+[-] C:\Users\<user>\Documents\androidPT\tools\platform-tools\platform-tools\rootAVD\Magisk.zip: 1 file pushed, 0 skipped. 95.4 MB/s (6874374 bytes in 0.069s)
+[*] create Backup File
+[*] Push ramdisk.img into /data/data/com.android.shell/Magisk
+[-] C:\Users\<user>\AppData\Local\Android\Sdk\system-images\android-30\google_apis\x86\ramdisk.img: 1 file pushed, 0 skipped. 102.5 MB/s (1520108 bytes in 0.014s)
+[-] Copy rootAVD Script into Magisk DIR
+rootAVD.sh: 1 file pushed, 0 skipped. 54.8 MB/s (7826127 bytes in 0.136s)
+[-] run the actually Boot/Ramdisk/Kernel Image Patch Script
+[*] from Magisk by topjohnwu and modded by NewBit XDA
+[!] We are in an emulator shell
+[-] Api Level Arch Detect
+[-] Device Platform is x86 only
+[-] Device SDK API: 30
+[-] First API Level: 30
+[-] Switch to the location of the script file
+[*] Extracting busybox and Magisk.zip ...
+[-] Checking AVDs Internet connection...
+[!] AVD is online
+[!] Checking available Magisk Versions
+wget: short read, have only 30
+[?] Choose a Magisk Version to install and make it local
+[1] Local '23.0' (ENTER)
+[2] Canary 1a1b346c(24102)
+[3] Stable 24.1
+[4] Alpha e7c82f20-alpha(24102)
+[1] You choose Magisk Local Version '23.0'
+[*] Re-Run rootAVD in Magisk Busybox STANDALONE (D)ASH
+[!] We are in an emulator shell
+[-] We are now in Magisk Busybox STANDALONE (D)ASH
+[*] rootAVD with Magisk '23.0' Installer
+[-] Get Flags
+[*] System-as-root, keep dm/avb-verity
+[-] Encrypted data, keep forceencrypt
+[*] RECOVERYMODE=false
+[-] KEEPVERITY=true
+[*] KEEPFORCEENCRYPT=true
+[-] copy all x86 files from /data/data/com.android.shell/Magisk/lib/x86 to /data/data/com.android.shell/Magisk
+[*] Detecting ramdisk.img compression
+[!] Ramdisk.img uses gzip compression
+[-] taken from shakalaca's MagiskOnEmulator/process.sh
+[*] executing ramdisk splitting / extraction / repacking
+[-] API level greater then 30
+[*] Check if we need to repack ramdisk before patching ..
+[-] Multiple cpio archives detected
+[*] Unpacking ramdisk ..
+[-] Dumping from 0 to 2184316 ..
+[-] Dumping from 2184448 to 4488420 ..
+[*] Repacking ramdisk ..
+[-] Deleting system ramdisk build.prop
+[-] Test patch status and do restore
+[-] Checking ramdisk status
+[-] STATUS=0
+[-] Stock boot image detected
+[-] Patching ramdisk
+[*] adding overlay.d/sbin folders to ramdisk
+Loading cpio: [ramdisk.cpio]
+Create directory [overlay.d] (0750)
+Create directory [overlay.d/sbin] (0750)
+Dump cpio: [ramdisk.cpio]
+[!] PATCHFSTAB=false
+[!] Skipping fstab.ranchu patch with /dev/block/sda
+[?] If you want fstab.ranchu patched, Call rootAVD with PATCHFSTAB
+[!] AddRCscripts=false
+[!] Skip adding *.rc scripts into ramdisk.img/sbin/*.rc
+[?] If you want *.rc scripts added into ramdisk.img/sbin/*.rc, Call rootAVD with AddRCscripts
+[!] patching the ramdisk with Magisk Init
+Loading cpio: [ramdisk.cpio]
+Add entry [init] (0750)
+Add entry [overlay.d/sbin/magisk32.xz] (0644)
+Patch with flag KEEPVERITY=[true] KEEPFORCEENCRYPT=[true]
+Loading cpio: [ramdisk.cpio.orig]
+Backup mismatch entry: [init] -> [.backup/init]
+Record new entry: [overlay.d] -> [.backup/.rmlist]
+Record new entry: [overlay.d/sbin] -> [.backup/.rmlist]
+Record new entry: [overlay.d/sbin/magisk32.xz] -> [.backup/.rmlist]
+Create directory [.backup] (0000)
+Add entry [.backup/.magisk] (0000)
+Dump cpio: [ramdisk.cpio]
+[*] repacking back to ramdisk.img format
+[!] Rename Magisk.zip to Magisk.apk
+[*] Pull ramdiskpatched4AVD.img into ramdisk.img
+[-] /data/data/com.android.shell/Magisk/ramdiskpatched4AVD.img: 1 file pulled, 0 skipped. 47.3 MB/s (1814216 bytes in 0.037s
+[*] Pull Magisk.apk into
+[-] /data/data/com.android.shell/Magisk/Magisk.apk: 1 file pulled, 0 skipped. 64.1 MB/s (6874374 bytes in 0.102s
+[-] Clean up the ADB working space
+[-] Install all APKs placed in the Apps folder
+[*] Trying to install APPS\Magisk.apk
+[-] Performing Streamed Install
+[-] Success
+[-] Shut-Down and Reboot [Cold Boot Now] the AVD and see if it worked
+[-] Root and Su with Magisk for Android Studio AVDs
+[-] Modded by NewBit XDA - Jan. 2021
+[*] Huge Credits and big Thanks to topjohnwu, shakalaca and vvb2060
+[-] Trying to shut down the AVD
+[!] If the AVD doesnt shut down, try it manually!
